@@ -1364,6 +1364,10 @@
         },
         comments: {
         
+        },
+
+        recipes: {
+
         }
     };
     var rules$1 = {

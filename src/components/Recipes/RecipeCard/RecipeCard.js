@@ -12,7 +12,7 @@ const RecipeCard = ({recipe}) => {
                 <h2 className="card-title">
                     {recipe.name}
                 </h2>
-                <p>Type: {recipe.type}</p>
+                <p className="card-type">Type: {recipe.type}</p>
                 <article className="card-buttons">
                     {/* link to /details */}
                     <Link to={`/details/${recipe._id}`}> 

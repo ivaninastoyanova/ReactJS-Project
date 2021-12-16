@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   max-width: 26%;
-  min-height: 450px;
+  min-height: 500px;
   min-width: 26%;
   margin: 75px auto;
   background: rgba(255, 255, 255, 0.25);
@@ -54,4 +54,15 @@
   color: rgb(125, 117, 131);
   padding: 5px 0px;
   text-align: center;
+}
+
+.card-title{
+  font-size: 30px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+}
+
+.card-type{
+  font-size: 19px;
+  margin-top: 17px;
 }
