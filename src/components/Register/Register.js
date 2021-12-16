@@ -1,28 +1,50 @@
-import { Link, useNavigate } from 'react-router-dom';
-import './Register.css';
+// import { Link, useNavigate } from 'react-router-dom';
+// import * as authService from '../../services/authService';
+// import { useContext, useState } from 'react';
+// import AuthContext from '../../contexts/AuthContext';
+
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+
 import * as authService from '../../services/authService';
-import { useContext, useState } from 'react';
-import AuthContext from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
+import './Register.css';
 
-export default function Register() {
 
-    const [err, setError] = useState(null);
+const Register = () =>  {
 
-    const navigate = useNavigate();
-    const { setUser } = useContext(AuthContext);
+    // const [err, setError] = useState(null);
 
-    function onRegister(ev) {
-        ev.preventDefault();
-        const { email, password } = Object.fromEntries(new  FormData(ev.currentTarget));
+    // const navigate = useNavigate();
+    // const { setUser } = useContext(AuthContext);
+
+    // function onRegister(ev) {
+    //     ev.preventDefault();
+    //     const { email, password } = Object.fromEntries(new  FormData(ev.currentTarget));
         
-        authService.register(email,  password)
-            .then(data => {
-                setUser(data);
-                navigate('/');
-            })
-            .catch(err => {
-                setError(err.message);
+    //     authService.register(email,  password)
+    //         .then(data => {
+    //             setUser(data);
+    //             navigate('/');
+    //         })
+    //         .catch(err => {
+    //             setError(err.message);
                 
+    //         });
+    // }
+    const navigate = useNavigate();
+    const { login } = useAuthContext();
+
+    const registerSubmitHandler = (e) => {
+        e.preventDefault();
+
+        let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+
+        authService.register(email, password)   
+            .then(authData => {
+                login(authData);
+                
+                navigate('/recipes');
             });
     }
 
@@ -32,16 +54,16 @@ export default function Register() {
                 <article className="register-header">
                     <h1>Sign Up</h1>
                 </article>
-                { err != null 
+                {/* { err != null 
                 ? <article className="errorMsg">
                     <span>{err}</span>
                   </article>
                 : ''
-                }
+                } */}
                 
 
                 <article className='register-form-container'>
-                    <form onSubmit={onRegister} className="registerForm">
+                    <form method="POST" onSubmit={registerSubmitHandler} className="registerForm">
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
                             <i class="inputIcon fas fa-envelope"></i>
@@ -65,3 +87,5 @@ export default function Register() {
         </>
     )
 }
+
+export default Register;
