@@ -1,0 +1,122 @@
+#login {
+  max-width: 60%;
+  min-height: 500px;
+  margin: 77px auto;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 7px;
+  box-shadow: 0px 1px 11px 2px rgb(128 126 126);
+}
+
+.login-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.login-header h1 {
+  font-size: 44px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.login-header p {
+  font-size: 17.5px;
+  margin: 5px 0 0;
+}
+
+.login-form-container {
+  margin-top: 25px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formGroup {
+  margin-bottom: 30px;
+	position: relative;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 20px;
+	margin: 0 0 5px;
+}
+
+.inputIcon {
+	position: absolute;
+	bottom: 11px;
+	left: 8.5px;
+}
+
+.formGroup input{
+  border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 10px;
+	padding-left: 33px;
+	font-weight: 700;
+	width: 350px;
+}
+
+.formGroup input:active,
+.formGroup input:focus,
+.formGroup input:hover {
+	outline: none;
+	border-bottom-color: rgb(109, 102, 114);;
+}
+
+.submitBtn {
+	width: 300px;
+	background: rgba(255, 255, 255, 0.5);
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: rgb(109, 102, 114);;
+	box-shadow: 0px 2px 2px rgb(109, 102, 114);
+	cursor: pointer;
+	position: relative;
+	text-align: left;
+}
+
+.submitBtn:active,
+.submitBtn:focus,
+.submitBtn:hover {
+	border-color: rgb(109, 102, 114);
+	outline: none;
+}
+
+.fa-chevron-right {
+	font-size: 25px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.login-footer {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.signup-text {
+	color: rgb(109, 102, 114);
+	font-weight: bold;
+}
+
+.errorMsg {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.errorMsg span {
+	padding: 10px 30px;
+	border-radius: 5px;
+	background: rgb(243, 154, 154);
+	color: rgb(200, 0, 0);
+}

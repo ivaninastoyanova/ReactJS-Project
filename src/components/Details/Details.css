@@ -1,0 +1,124 @@
+#details {
+    max-width: 85%;
+    min-height: 500px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0px 1px 11px 2px rgb(128 126 126);
+    display: flex;
+    flex-direction: column;
+} 
+
+.details-top{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 30px 0px;
+  color: rgb(104, 101, 105);
+
+}
+
+.details-top-left{
+ width: 40%;
+}
+
+.details-title{
+  font-size: 32px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  letter-spacing: 1.5px;
+}
+
+.details-type{
+  font-size: 22px;
+  margin: 15px 0px;
+
+}
+
+.details-likes-count{
+ font-size: 20px;
+ margin: 15px 0px;
+}
+
+.details-buttons{
+  margin-top: 17px;
+}
+
+.details-top-right{
+ width: 20%;
+ height: 200px;
+ border-radius: 7px;
+ box-shadow: 0px 1px 11px 2px rgb(128 126 126);}
+
+.details-top-right-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0px 1px 11px 2px rgb(128 126 126);
+}
+
+.details-bottom{
+width: 75%;
+margin: 0 auto;
+text-align: center;
+color: rgb(104, 101, 105);
+}
+
+.details-description-title{
+  font-size: 28px;
+}
+
+.details-description-text{
+  font-size: 17.5px;
+  margin-bottom: 30px;
+}
+
+.details-owner-button{
+  outline: none;
+  border: none;
+  background: rgb(125, 117, 131);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color:rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 5px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.details-owner-button:hover {
+  background:rgba(51, 50, 50, 0.9);
+  color: white;
+  letter-spacing: 2px;
+}
+
+.details-guest-button{
+  outline: none;
+  border: none;
+  background: rgb(125, 117, 131);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color:rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 5px;
+  letter-spacing: 2px;
+}
+
+
+.details-guest-button:hover {
+  background:rgba(51, 50, 50, 0.9);
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+

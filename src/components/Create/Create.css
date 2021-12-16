@@ -1,0 +1,113 @@
+#create {
+    max-width: 60%;
+    min-height: 500px;
+    margin: 77px auto;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 7px;
+    box-shadow: 0px 1px 11px 2px rgb(128 126 126);
+  }
+  
+  .create-header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .create-header h1 {
+    font-size: 40px;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  
+  .create-header p {
+    font-size: 17.5px;
+    margin: 5px 0 0;
+  }
+  
+  .create-form-container {
+    margin-top: 25px;
+  }
+  
+  .createForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .createGroup {
+    margin-bottom: 30px;
+      position: relative;
+  }
+  
+  .createGroup label {
+    display: block;
+    font-size: 20px;
+      margin: 0 0 5px;
+  }
+  
+
+  
+  .createGroup input{
+    border: none;
+      border-bottom: 2px solid #D1D1D4;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      font-weight: 700;
+      width: 400px;
+      height: 50px;
+  }
+
+  .createGroup textarea{
+    border: none;
+      border-bottom: 2px solid #D1D1D4;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      font-weight: 700;
+      width: 400px;
+      height: 100px;
+      max-width: 400px;
+      min-width: 400px;
+  }
+  
+  .createGroup input:active,
+  .createGroup input:focus,
+  .createGroup input:hover {
+      outline: none;
+      border-bottom-color: rgb(109, 102, 114);;
+  }
+
+  .createGroup textarea:active,
+  .createGroup textarea:focus,
+  .createGroup textarea:hover {
+      outline: none;
+      border-bottom-color: rgb(109, 102, 114);;
+  }
+  
+  .createBtn {
+      width: 300px;
+      background: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+      margin-top: 30px;
+      padding: 16px 20px;
+      border-radius: 26px;
+      border: 1px solid #D4D3E8;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgb(109, 102, 114);;
+      box-shadow: 0px 2px 2px rgb(109, 102, 114);
+      cursor: pointer;
+      position: relative;
+      text-align: left;
+      text-align: center;
+  }
+  
+  .createBtn:active,
+  .createBtn:focus,
+  .createBtn:hover {
+      background-color: rgb(109, 102, 114);
+      color: white;
+      outline: none;
+
+  }
+  
+  
+ 

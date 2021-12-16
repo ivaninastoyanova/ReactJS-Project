@@ -1,0 +1,44 @@
+.about-container{
+    width: 100%;
+}
+.about-img-container{
+    width: 100%;
+    height: 81vh;
+}
+
+.about-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text-container{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 24%;;
+    text-align: center;
+}
+
+.about-title{
+    font-size: 60px;
+    color: white;
+    letter-spacing: 2.5px;
+   font-weight: bold;
+}
+
+.about-subtitle{
+    font-size: 45px;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.about-text-red{
+    font-size: 40px;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+}

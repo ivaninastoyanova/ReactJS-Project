@@ -1,0 +1,17 @@
+.recipes-list-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recipes-title{
+    margin: 50px;
+    text-align: center;
+    font-size: 45px;
+    color: rgb(125, 117, 131);
+
+}
