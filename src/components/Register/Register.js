@@ -44,7 +44,7 @@ const Register = () =>  {
             .then(authData => {
                 login(authData);
                 
-                navigate('/recipes');
+                navigate('/catalog');
             });
     }
 

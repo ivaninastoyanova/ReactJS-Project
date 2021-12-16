@@ -1,7 +1,35 @@
 import "./Create.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import * as recipeService from '../../services/recipeService';
+import { useAuthContext } from '../../contexts/AuthContext';
 
-export default function Create() {
+const Create = () => {
+
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
+
+  const onRecipeCreate = (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.currentTarget);
+
+    let name = formData.get('name');
+    let description = formData.get('description');
+    let imageUrl = formData.get('imageUrl');
+    let type = formData.get('type');
+
+    recipeService.create({
+        name,
+        type,
+        imageUrl,
+        description,
+    }, user.accessToken)
+        .then(result => {
+            navigate('/catalog');
+        })
+}
+
+
   return (
     <>
       <section id="create">
@@ -10,7 +38,7 @@ export default function Create() {
         </article>
 
         <article className="create-form-container">
-          <form className="createForm">
+          <form className="createForm" onSubmit={onRecipeCreate} method="POST">
             <div className="createGroup">
               <label htmlFor="name">Name:</label>
               <input
@@ -21,18 +49,19 @@ export default function Create() {
               />
             </div>
             <div className="createGroup">
-              <label htmlFor="image">Image URL:</label>
-              <input
-                type="text"
-                id="image"
-                name="image"
-                placeholder="Image URL"
-              />
-            </div>
-            <div className="createGroup">
               <label htmlFor="type">Type:</label>
               <input type="text" id="type" name="type" placeholder="Soup" />
             </div>
+            <div className="createGroup">
+              <label htmlFor="imageUrl">Image URL:</label>
+              <input
+                type="text"
+                id="imageUrl"
+                name="imageUrl"
+                placeholder="Image URL"
+              />
+            </div>
+            
 
             {/* <p className="field">
               <label htmlFor="type">Type: </label>
@@ -49,7 +78,7 @@ export default function Create() {
             </p> */}
           
             <div className="createGroup">
-              <label htmlFor="type">Description:</label>
+              <label htmlFor="description">Description:</label>
               <textarea
                 type="text"
                 id="description"
@@ -66,3 +95,4 @@ export default function Create() {
     </>
   );
 }
+export default Create;

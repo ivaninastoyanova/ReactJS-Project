@@ -14,7 +14,7 @@ export default function Home() {
             <h1 className="home-title">Find the Best Recipes</h1>
             <p className="home-p">Explore our yummy recipes catalog</p>
             <article className="homeButtons">
-              <Link to="/recipes" className="homeButton">
+              <Link to="/catalog" className="homeButton">
                 All recipes
               </Link>
             </article>

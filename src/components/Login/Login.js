@@ -47,7 +47,7 @@ const Login = () => {
             .then((authData) => {
                 login(authData);
                 addNotification('You logged in successfully', types.success);
-                navigate('/recipes');
+                navigate('/catalog');
             })
             .catch(err => {
                 // TODO: show notification

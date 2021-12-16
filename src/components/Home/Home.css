@@ -11,7 +11,7 @@
 }
 
 .home-img-container {
-  height: 500px;
+  height: 475px;
 }
 
   
@@ -41,14 +41,15 @@
 
 
 .home-title {
-  font-size: 34px;
+  font-size: 42px;
   letter-spacing: 2px;
   margin: 0;
 }
 
 .home-p {
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 1px;
+  margin-top: 16px;
 }
 
 .homeButtons {

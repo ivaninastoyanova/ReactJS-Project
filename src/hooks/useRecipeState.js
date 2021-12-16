@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 
-import * as petService from "../services/recipeService";
+import * as recipeService from "../services/recipeService";
 
-const useRecipeState = (petId) => {
-  const [pet, setPet] = useState({});
+const useRecipeState = (recipeId) => {
+  const [recipe, setRecipe] = useState({});
 
   const controller = useMemo(() => {
     const controller = new AbortController();
@@ -12,16 +12,16 @@ const useRecipeState = (petId) => {
   }, []);
 
   useEffect(() => {
-    petService.getOne(petId, controller.signal).then((petResult) => {
-      setPet(petResult);
+    recipeService.getOne(recipeId, controller.signal).then((recipeResult) => {
+      setRecipe(recipeResult);
     });
 
     return () => {
       controller.abort();
     };
-  }, [petId, controller]);
+  }, [recipeId, controller]);
 
-  return [pet, setPet];
+  return [recipe, setRecipe];
 };
 
-export default usePetState;
+export default useRecipeState;

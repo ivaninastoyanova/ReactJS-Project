@@ -1,21 +1,28 @@
 import RecipeCard from "./RecipeCard";
 import "./RecipesList.css";
 
-const RecipesList = () => {
-    return (
-        <div className="recipes">
-            <h1 className="recipes-title">Explore the best recipes in the world</h1>
-            <div className="recipes-list-container">
-                <RecipeCard />
-                <RecipeCard />
-                <RecipeCard />
-                <RecipeCard />
-                <RecipeCard />
-                
-            </div>
 
-        </div>
-    );
+const RecipesList = ({ recipes }) => {
+  return (
+    // div className="recipes"
+    <>
+      { recipes.length > 0 
+        ? (
+        <>
+          
+          <div className="recipes-list-container">
+            {recipes.map((x) => (
+              <RecipeCard key={x._id} recipe={x} />
+            ))}
+          </div>
+        </>
+      ) 
+      : (
+        <p className="recipe-no-recipes">There are no recipes yet!</p>
+      )}
+      
+    </>
+  );
 };
 
 export default RecipesList;

@@ -26,6 +26,7 @@ import MyRecipes from "./components/MyRecipes/MyRecipes";
 import AboutUs from "./components/AboutUs";
 import Create from "./components/Create";
 import Details from "./components/Details";
+import Catalog from "./components/Catalog";
 
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
@@ -49,10 +50,12 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/logout" element={<Logout />} />
-                <Route path="/recipes" element={<RecipesList />} />
+                <Route path="/catalog" element={<Catalog />} />
                 <Route path="/my-recipes" element={<MyRecipes />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/create" element={<Create />} />
+                <Route path="/details/:recipeId" element={<Details />} />
+
 
                 <Route element={<GuardedRoute />}>
 

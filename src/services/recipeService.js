@@ -10,7 +10,7 @@ export const getMyRecipes = (ownerId) => {
   return request.get(`${baseUrl}/recipes?where=${query}`);
 };
 
-export const create = async (recipetData, token) => {
+export const create = async (recipeData, token) => {
   let response = await fetch(`${baseUrl}/recipes`, {
     method: "POST",
     headers: {
@@ -26,16 +26,16 @@ export const create = async (recipetData, token) => {
 };
 
 export const update = (recipeId, recipeData) =>
-  request.put(`${baseUrl}/pets/${recipeId}`, recipeData);
+  request.put(`${baseUrl}/recipes/${recipeId}`, recipeData);
 
 export const getOne = (recipeId, signal) => {
-  return fetch(`${baseUrl}/pets/${recipeId}`, { signal }).then((res) =>
+  return fetch(`${baseUrl}/recipes/${recipeId}`, { signal }).then((res) =>
     res.json()
   );
 };
 
 export const destroy = (recipeId, token) => {
-  return fetch(`${baseUrl}/recipes/${petId}`, {
+  return fetch(`${baseUrl}/recipes/${recipeId}`, {
     method: "DELETE",
     headers: {
       "X-Authorization": token,

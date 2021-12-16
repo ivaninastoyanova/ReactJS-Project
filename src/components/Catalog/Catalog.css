@@ -1,4 +1,4 @@
-.recipes-list-container{
+.catalog-list-container{
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -8,17 +8,10 @@
     justify-content: space-between;
 }
 
-.recipes-title{
+.catalog-title{
     margin: 50px;
     text-align: center;
     font-size: 45px;
     color: rgb(125, 117, 131);
 
-}
-
-.recipe-no-recipes{
-    margin: 50px;
-    text-align: center;
-    font-size: 45px;
-    color: rgb(125, 117, 131);
 }
