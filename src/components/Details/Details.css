@@ -26,20 +26,20 @@
 }
 
 .details-title{
-  font-size: 32px;
+  font-size: 35px;
   margin-top: 15px;
   margin-bottom: 40px;
   letter-spacing: 1.5px;
 }
 
 .details-type{
-  font-size: 22px;
+  font-size: 21px;
   margin: 15px 0px;
 
 }
 
 .details-likes-count{
- font-size: 20px;
+ font-size: 21px;
  margin: 15px 0px;
 }
 
