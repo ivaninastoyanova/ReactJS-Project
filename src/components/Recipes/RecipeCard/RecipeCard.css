@@ -36,7 +36,7 @@
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 .card-button:hover {
