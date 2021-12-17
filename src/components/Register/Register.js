@@ -1,6 +1,6 @@
 // import { Link, useNavigate } from 'react-router-dom';
 // import * as authService from '../../services/authService';
-// import { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 // import AuthContext from '../../contexts/AuthContext';
 
 import { useNavigate } from 'react-router';
@@ -32,6 +32,7 @@ const Register = () =>  {
                 
     //         });
     // }
+    const [err, setError] = useState(null);
     const navigate = useNavigate();
     const { login } = useAuthContext();
 
@@ -43,8 +44,10 @@ const Register = () =>  {
         authService.register(email, password)   
             .then(authData => {
                 login(authData);
-                
                 navigate('/catalog');
+            })
+            .catch(err => {
+                setError(err);
             });
     }
 
@@ -54,12 +57,13 @@ const Register = () =>  {
                 <article className="register-header">
                     <h1>Sign Up</h1>
                 </article>
-                {/* { err != null 
+
+                { err != null 
                 ? <article className="errorMsg">
                     <span>{err}</span>
                   </article>
                 : ''
-                } */}
+                }
                 
 
                 <article className='register-form-container'>
@@ -67,7 +71,7 @@ const Register = () =>  {
                         <div className="formGroup">
                             <label htmlFor="email">Email:</label>
                             <i class="inputIcon fas fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder='email@example.com' />
+                            <input type="text" id="email" name="email" placeholder='email@example.com' />
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>

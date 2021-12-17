@@ -1,4 +1,4 @@
-// import { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 // import { Link, useNavigate } from 'react-router-dom';
 // import AuthContext from '../../contexts/AuthContext';
 // import * as authService from '../../services/authService';
@@ -13,6 +13,7 @@ import * as authService from '../../services/authService';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [err, setError] = useState(null);
 
     // const [err, setError] = useState(null);
 
@@ -46,12 +47,11 @@ const Login = () => {
         authService.login(email, password)
             .then((authData) => {
                 login(authData);
-                addNotification('You logged in successfully', types.success);
+                // addNotification('You logged in successfully', types.success);
                 navigate('/catalog');
             })
             .catch(err => {
-                // TODO: show notification
-                console.log(err);
+                setError(err);
             });
     }
 
@@ -61,13 +61,13 @@ const Login = () => {
                 <article className="login-header">
                     <h1>Sign In</h1>
                 </article>
-{/* 
+
                 { err != null 
                 ? <article className="errorMsg">
                     <span>{err}</span>
                   </article>
                 : ''
-                } */}
+                }
 
                 <article className='login-form-container'>
                     <form onSubmit={onLoginHandler} method="POST" className="loginForm">

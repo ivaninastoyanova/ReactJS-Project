@@ -1,30 +1,5 @@
-// async function request(path, data) {
-//     const response = await fetch(`http://localhost:3030/users${path}`, {
-//         method: 'POST',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//         body: JSON.stringify(data)
-//     });
-
-//     const resData = await response.json();
-//     if(!response.ok) {
-//         throw new Error(resData.message);
-//     }
-
-//     return resData;
-// }
-
-// export const login = async (email, password) => {
-//     return request('/login', { email, password });
-
-// };
-
-// export const register = (email, password) => {
-//     return request('/register', { email, password });
-// }
-
 const baseUrl = "http://localhost:3030";
+const emailRegex = new RegExp("^[\w'+-]+(\.[\w'+-]+)*@\w+([-.]\w+)*\.\w{2,24}$");
 
 export const login = async (email, password) => {
   let res = await fetch(`${baseUrl}/users/login`, {
@@ -38,21 +13,37 @@ export const login = async (email, password) => {
   let jsonResult = await res.json();
 
   if (res.ok) {
+    if (!jsonResult.email) {
+      throw jsonResult.message;
+    }
+
     return jsonResult;
   } else {
     throw jsonResult.message;
   }
 };
 
-export const register = (email, password) => {
-  return fetch(`${baseUrl}/users/register`, {
+export const register = async (email, password) => {
+  let res = await fetch(`${baseUrl}/users/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => res.json());
+  });
+
+  let jsonResult = await res.json();
+
+   if (res.ok) {
+    if (!emailRegex.test(jsonResult.email)) {
+      throw "Invalid email address format";
+    }
+    return jsonResult;
+  } else {
+    throw jsonResult.message;
+  }
 };
+
 
 export const logout = (token) => {
   return fetch(`${baseUrl}/users/logout`, {
