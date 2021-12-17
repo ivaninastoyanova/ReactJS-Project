@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:3030";
-const emailRegex = new RegExp("^[\w'+-]+(\.[\w'+-]+)*@\w+([-.]\w+)*\.\w{2,24}$");
+// const emailRegex = new RegExp("^[\w'+-]+(\.[\w'+-]+)*@\w+([-.]\w+)*\.\w{1,24}$");
+const emailRegex = new RegExp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$");
 
 export const login = async (email, password) => {
   let res = await fetch(`${baseUrl}/users/login`, {
