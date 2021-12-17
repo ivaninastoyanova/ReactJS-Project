@@ -7,7 +7,7 @@ export const request = async (method, url, data) => {
     result = fetch(url, {
       method,
       headers: {
-        "content-type": "application/json",
+        "Content-type": "application/json",
         "X-Authorization": getToken(),
       },
       body: JSON.stringify(data),

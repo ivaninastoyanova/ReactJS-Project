@@ -27,6 +27,7 @@ import AboutUs from "./components/AboutUs";
 import Create from "./components/Create";
 import Details from "./components/Details";
 import Catalog from "./components/Catalog";
+import Edit from './components/Edit';
 
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/create" element={<Create />} />
                 <Route path="/details/:recipeId" element={<Details />} />
+                <Route path="/edit/:recipeId" element={<Edit />} />
 
 
                 <Route element={<GuardedRoute />}>

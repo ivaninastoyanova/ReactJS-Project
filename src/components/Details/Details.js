@@ -13,6 +13,7 @@ import useRecipeState from "../../hooks/useRecipeState";
 
 import ConfirmDialog from "../Common/ConfirmDialog";
 
+
 const Details = () => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
@@ -22,7 +23,8 @@ const Details = () => {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   useEffect(() => {
-    likeService.getRecipeLikes(recipeId).then((likes) => {
+    likeService.getRecipeLikes(recipeId)
+    .then((likes) => {
       setRecipe((state) => ({ ...state, likes }));
     });
   }, []);
@@ -31,7 +33,7 @@ const Details = () => {
     e.preventDefault();
 
     recipeService
-      .destroy(recipeId, user.accessToken)
+      .remove(recipeId, user.accessToken)
       .then(() => {
         navigate("/catalog");
       })

@@ -27,14 +27,15 @@ export const create = async (recipeData, token) => {
 
 export const update = (recipeId, recipeData) =>
   request.put(`${baseUrl}/recipes/${recipeId}`, recipeData);
+  
 
-export const getOne = (recipeId, signal) => {
-  return fetch(`${baseUrl}/recipes/${recipeId}`, { signal }).then((res) =>
-    res.json()
+export const getOne = (recipeId) => {
+  return fetch(`${baseUrl}/recipes/${recipeId}`)
+  .then((res) => res.json()
   );
 };
 
-export const destroy = (recipeId, token) => {
+export const remove = (recipeId, token) => {
   return fetch(`${baseUrl}/recipes/${recipeId}`, {
     method: "DELETE",
     headers: {

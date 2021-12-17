@@ -1368,6 +1368,9 @@
 
         recipes: {
 
+        },
+        likes: {
+
         }
     };
     var rules$1 = {

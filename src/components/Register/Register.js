@@ -71,7 +71,7 @@ const Register = () =>  {
                         </div>
                         <div className="formGroup">
                             <label htmlFor="password">Password:</label>
-                            <i class="inputIcon fas fa-lock"></i>
+                            <i className="inputIcon fas fa-lock"></i>
                             <input type="password" id="password" name="password" placeholder="********" />
                         </div>
                         <div className="formGroup">

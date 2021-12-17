@@ -5,21 +5,12 @@ import * as recipeService from "../services/recipeService";
 const useRecipeState = (recipeId) => {
   const [recipe, setRecipe] = useState({});
 
-  const controller = useMemo(() => {
-    const controller = new AbortController();
-
-    return controller;
-  }, []);
-
   useEffect(() => {
-    recipeService.getOne(recipeId, controller.signal).then((recipeResult) => {
+    recipeService.getOne(recipeId)
+    .then((recipeResult) => {
       setRecipe(recipeResult);
     });
-
-    return () => {
-      controller.abort();
-    };
-  }, [recipeId, controller]);
+  }, [recipeId]);
 
   return [recipe, setRecipe];
 };

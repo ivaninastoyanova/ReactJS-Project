@@ -1,0 +1,106 @@
+#edit {
+  max-width: 60%;
+  min-height: 500px;
+  margin: 77px auto;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 7px;
+  box-shadow: 0px 1px 11px 2px rgb(128 126 126);
+}
+
+.edit-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.edit-header h1 {
+  font-size: 40px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.edit-header p {
+  font-size: 17.5px;
+  margin: 5px 0 0;
+}
+
+.edit-form-container {
+  margin-top: 25px;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editGroup {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.editGroup label {
+  display: block;
+  font-size: 20px;
+  margin: 0 0 5px;
+}
+
+.editGroup input {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  font-weight: 700;
+  width: 400px;
+  height: 50px;
+}
+
+.editGroup textarea {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  font-weight: 700;
+  width: 400px;
+  height: 100px;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.editGroup input:active,
+.editGroup input:focus,
+.editGroup input:hover {
+  outline: none;
+  border-bottom-color: rgb(109, 102, 114);
+}
+
+.editGroup textarea:active,
+.editGroup textarea:focus,
+.editGroup textarea:hover {
+  outline: none;
+  border-bottom-color: rgb(109, 102, 114);
+}
+
+.editBtn {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(109, 102, 114);
+  box-shadow: 0px 2px 2px rgb(109, 102, 114);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+
+.editBtn:active,
+.editBtn:focus,
+.editBtn:hover {
+  background-color: rgb(109, 102, 114);
+  color: white;
+  outline: none;
+}
