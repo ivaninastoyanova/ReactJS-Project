@@ -1,9 +1,3 @@
-// import { createContext } from 'react';
-
-// const AuthContext = createContext();
-
-// export default AuthContext;
-
 import { createContext, useContext } from "react";
 
 import useLocalStorage from "../hooks/useLocalStorage";

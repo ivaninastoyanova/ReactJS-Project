@@ -17,6 +17,9 @@ export const login = async (email, password) => {
     if (!jsonResult.email) {
       throw jsonResult.message;
     }
+    if (!emailRegex.test(jsonResult.email)) {
+      throw "Invalid email address format";
+    }
 
     return jsonResult;
   } else {

@@ -15,25 +15,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     const [err, setError] = useState(null);
 
-    // const [err, setError] = useState(null);
-
-    // const navigate = useNavigate();
-    // const { setUser } = useContext(AuthContext);
-
-    // function onLogin(ev) {
-    //     ev.preventDefault();
-    //     const { email, password } = Object.fromEntries(new FormData(ev.currentTarget));
-    //     authService.login(email, password)
-    //         .then(data => {
-    //             setUser(data);
-    //             navigate('/');
-    //         })
-    //         .catch(err => {
-    //             setError(err.message);
-    //         });
-    // }
     const { login } = useAuthContext();
-    const { addNotification } = useNotificationContext();
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {
@@ -47,7 +29,6 @@ const Login = () => {
         authService.login(email, password)
             .then((authData) => {
                 login(authData);
-                // addNotification('You logged in successfully', types.success);
                 navigate('/catalog');
             })
             .catch(err => {

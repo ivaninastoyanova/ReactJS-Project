@@ -1,7 +1,4 @@
-// import { Link, useNavigate } from 'react-router-dom';
-// import * as authService from '../../services/authService';
 import { useContext, useState } from 'react';
-// import AuthContext from '../../contexts/AuthContext';
 
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -13,25 +10,6 @@ import './Register.css';
 
 const Register = () =>  {
 
-    // const [err, setError] = useState(null);
-
-    // const navigate = useNavigate();
-    // const { setUser } = useContext(AuthContext);
-
-    // function onRegister(ev) {
-    //     ev.preventDefault();
-    //     const { email, password } = Object.fromEntries(new  FormData(ev.currentTarget));
-        
-    //     authService.register(email,  password)
-    //         .then(data => {
-    //             setUser(data);
-    //             navigate('/');
-    //         })
-    //         .catch(err => {
-    //             setError(err.message);
-                
-    //         });
-    // }
     const [err, setError] = useState(null);
     const navigate = useNavigate();
     const { login } = useAuthContext();
