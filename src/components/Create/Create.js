@@ -1,33 +1,38 @@
 import "./Create.css";
-import { useNavigate } from 'react-router-dom';
-import * as recipeService from '../../services/recipeService';
-import { useAuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from "react-router-dom";
+import * as recipeService from "../../services/recipeService";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { useNotificationContext } from "../../contexts/NotificationContext";
 
 const Create = () => {
-
   const { user } = useAuthContext();
   const navigate = useNavigate();
+  const { addNotification } = useNotificationContext();
 
   const onRecipeCreate = (e) => {
     e.preventDefault();
     let formData = new FormData(e.currentTarget);
 
-    let name = formData.get('name');
-    let description = formData.get('description');
-    let imageUrl = formData.get('imageUrl');
-    let type = formData.get('type');
+    let name = formData.get("name");
+    let description = formData.get("description");
+    let imageUrl = formData.get("imageUrl");
+    let type = formData.get("type");
 
-    recipeService.create({
-        name,
-        type,
-        imageUrl,
-        description,
-    }, user.accessToken)
-        .then(result => {
-            navigate('/catalog');
-        })
-}
-
+    recipeService
+      .create(
+        {
+          name,
+          type,
+          imageUrl,
+          description,
+        },
+        user.accessToken
+      )
+      .then((result) => {
+        addNotification("You created a new recipe.");
+        navigate("/catalog");
+      });
+  };
 
   return (
     <>
@@ -60,22 +65,7 @@ const Create = () => {
                 placeholder="Image URL"
               />
             </div>
-            
 
-            {/* <p className="field">
-              <label htmlFor="type">Type: </label>
-              <span className="input">
-                <select id="type" name="type">
-                  <option value="salad">Salad</option>
-                  <option value="soup">Soup</option>
-                  <option value="starter">Starter</option>
-                  <option value="main-course">Main Course</option>
-                  <option value="dessert">Dessert</option>
-                  <option value="other">Other</option>
-                </select>
-              </span>
-            </p> */}
-          
             <div className="createGroup">
               <label htmlFor="description">Description:</label>
               <textarea
@@ -93,5 +83,5 @@ const Create = () => {
       </section>
     </>
   );
-}
+};
 export default Create;

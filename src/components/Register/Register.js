@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import * as authService from '../../services/authService';
 import { useAuthContext } from '../../contexts/AuthContext';
+import { useNotificationContext} from '../../contexts/NotificationContext';
+
 import './Register.css';
 
 
@@ -12,6 +14,8 @@ const Register = () =>  {
 
     const [err, setError] = useState(null);
     const navigate = useNavigate();
+    const { addNotification } = useNotificationContext();
+
     const { login } = useAuthContext();
 
     const registerSubmitHandler = (e) => {
@@ -22,6 +26,7 @@ const Register = () =>  {
         authService.register(email, password)   
             .then(authData => {
                 login(authData);
+                addNotification('You signed up successfully.');
                 navigate('/catalog');
             })
             .catch(err => {

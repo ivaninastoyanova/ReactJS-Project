@@ -1,13 +1,11 @@
 import { useContext, useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import AuthContext from '../../contexts/AuthContext';
-// import * as authService from '../../services/authService';
+
 import './Login.css';
 
 import { useNavigate } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
-import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import { useNotificationContext} from '../../contexts/NotificationContext';
 
 import * as authService from '../../services/authService';
 import { Link } from 'react-router-dom';
@@ -17,6 +15,7 @@ const Login = () => {
 
     const { login } = useAuthContext();
     const navigate = useNavigate();
+    const { addNotification } = useNotificationContext();
 
     const onLoginHandler = (e) => {
         e.preventDefault();
@@ -29,6 +28,7 @@ const Login = () => {
         authService.login(email, password)
             .then((authData) => {
                 login(authData);
+                addNotification('You logged in successfully.');
                 navigate('/catalog');
             })
             .catch(err => {

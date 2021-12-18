@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import * as recipeService from "../../services/recipeService";
 import useRecipeState from "../../hooks/useRecipeState";
+import { useNotificationContext} from '../../contexts/NotificationContext';
+
 import "./Edit.css";
 
 const Edit = () => {
@@ -10,8 +12,7 @@ const Edit = () => {
   const { recipeId } = useParams();
   console.log(recipeId);
   const [recipe, setRecipe] = useRecipeState(recipeId);
-  console.log(recipe);
-//   const [errors, setErrors] = useState({ name: false });
+  const { addNotification } = useNotificationContext();
 
   const navigate = useNavigate();
 
@@ -22,23 +23,13 @@ const Edit = () => {
 
     recipeService.update(recipe._id, recipeData)
     .then(result => {
+      addNotification('Successfully edited a recipe.');
+
         navigate('/catalog');
     });
 
-    // recipeService.update(recipe._id, recipeData);
-    // navigate('/catalog');
   };
 
-  // const nameChangeHandler = (e) => {
-  //     let currentName = e.target.value;
-  //     if (currentName.length < 3) {
-  //         setErrors(state => ({...state, name: 'Your name sould be at least 3 characters!'}))
-  //     } else if (currentName.length > 10) {
-  //         setErrors(state => ({...state, name: 'Your name sould be max 10 characters!'}))
-  //     } else {
-  //         setErrors(state => ({...state, name: false}))
-  //     }
-  // };
 
   return (
       <section id="edit">

@@ -5,14 +5,10 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import * as recipeService from "../../services/recipeService";
 import * as likeService from "../../services/likeService";
 import { useAuthContext } from "../../contexts/AuthContext";
-import {
-  useNotificationContext,
-  types,
-} from "../../contexts/NotificationContext";
+import { useNotificationContext } from "../../contexts/NotificationContext";
 import useRecipeState from "../../hooks/useRecipeState";
 
 import ConfirmDialog from "../Common/ConfirmDialog";
-
 
 const Details = () => {
   const navigate = useNavigate();
@@ -23,8 +19,7 @@ const Details = () => {
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   useEffect(() => {
-    likeService.getRecipeLikes(recipeId)
-    .then((likes) => {
+    likeService.getRecipeLikes(recipeId).then((likes) => {
       setRecipe((state) => ({ ...state, likes }));
     });
   }, []);
@@ -35,6 +30,7 @@ const Details = () => {
     recipeService
       .remove(recipeId, user.accessToken)
       .then(() => {
+        addNotification("You deleted a recipe.");
         navigate("/catalog");
       })
       .finally(() => {
@@ -61,7 +57,7 @@ const Details = () => {
     likeService.like(user._id, recipeId).then(() => {
       setRecipe((state) => ({ ...state, likes: [...state.likes, user._id] }));
 
-      addNotification("Successfuly liked a recipe.", types.success);
+      addNotification("Successfuly liked a recipe.");
     });
   };
 
@@ -70,28 +66,38 @@ const Details = () => {
       <Link className="button" to={`/edit/${recipe._id}`}>
         <button className="details-owner-button"> Edit </button>
       </Link>
-      <button className="details-owner-button" onClick={deleteClickHandler}> Delete </button>
+      <button className="details-owner-button" onClick={deleteClickHandler}>
+        {" "}
+        Delete{" "}
+      </button>
     </>
   );
 
   const userButtons = (
-      <button className="details-guest-button" onClick={likeButtonClick} disabled={recipe.likes?.includes(user._id)}>Like</button>
+    <button className="details-guest-button" onClick={likeButtonClick}>
+      Like
+    </button>
   );
 
   return (
     <>
-    <ConfirmDialog show={showDeleteDialog} onClose={() => setShowDeleteDialog(false)} onSave={deleteHandler} />
+      <ConfirmDialog
+        show={showDeleteDialog}
+        onClose={() => setShowDeleteDialog(false)}
+        onSave={deleteHandler}
+      />
       <section id="details">
         <article className="details-top">
           <section className="details-top-left">
             <h2 className="details-title">{recipe.name}</h2>
             <h3 className="details-type">Type: {recipe.type} </h3>
-            <p className="details-likes-count">Likes:  {recipe.likes?.length || 0} </p>
+            <p className="details-likes-count">
+              Likes: {recipe.likes?.length || 0}{" "}
+            </p>
 
             <article className="details-buttons">
-              {user._id && (user._id == recipe._ownerId 
-                ? ownerButtons 
-                : userButtons)}
+              {user._id &&
+                (user._id == recipe._ownerId ? ownerButtons : userButtons)}
             </article>
           </section>
 
@@ -106,9 +112,7 @@ const Details = () => {
 
         <article className="details-bottom">
           <h2 className="details-description-title">Description:</h2>
-          <p className="details-description-text">
-            {recipe.description}
-          </p>
+          <p className="details-description-text">{recipe.description}</p>
         </article>
       </section>
     </>
