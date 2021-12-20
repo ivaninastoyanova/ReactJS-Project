@@ -22,7 +22,7 @@ The site takes you to the `Login` page if you try to open a URL that is accessib
 
 Validation is implemented.
 
-You shoul register with a valid email format. For example, `something@some_domain.some_toplevel_domain`.
+You shoul register with a valid email format. For example, `something@someDomain.someTopLevelDomain`.
 
 The password should be at least `five` characters long.
 
