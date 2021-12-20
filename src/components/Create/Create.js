@@ -1,17 +1,15 @@
 import "./Create.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as recipeService from "../../services/recipeService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useNotificationContext } from "../../contexts/NotificationContext";
-import { useState } from 'react';
-
 
 const Create = () => {
-  const [err, setError] = useState(null);
-
   const { user } = useAuthContext();
   const navigate = useNavigate();
   const { addNotification } = useNotificationContext();
+  const [err, setError] = useState(null);
 
   const onRecipeCreate = (e) => {
     e.preventDefault();
@@ -36,9 +34,9 @@ const Create = () => {
         addNotification("You created a new recipe.");
         navigate("/catalog");
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err);
-    });
+      });
   };
 
   return (

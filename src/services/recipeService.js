@@ -22,15 +22,11 @@ export const create = async (recipeData, token) => {
 
   let result = await response.json();
 
-  if(!result.ok){
-    throw new Error(result.message  || 'Database Error! Please try again later!');
-}
   return result;
 };
 
-export const update = (recipeId, recipeData) =>{
+export const update = (recipeId, recipeData) =>
   request.put(`${baseUrl}/recipes/${recipeId}`, recipeData);
-}
   
 
 export const getOne = (recipeId) => {
