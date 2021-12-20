@@ -1,6 +1,6 @@
 # Yummy Recipes
 
-## Project Descrition
+## Project Description
 
 A place where you can upload recipes and share them with the world.
 
