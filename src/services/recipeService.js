@@ -21,7 +21,6 @@ export const create = async (recipeData, token) => {
   });
 
   let result = await response.json();
-
   return result;
 };
 

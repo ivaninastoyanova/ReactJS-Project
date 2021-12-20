@@ -55,12 +55,28 @@ const Create = () => {
                 id="name"
                 name="name"
                 placeholder="Chicken Soup"
+                required
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("This field is required");
+                }}
+                onInput={(e) => e.target.setCustomValidity("")}
               />
             </div>
             <div className="createGroup">
               <label htmlFor="type">Type:</label>
-              <input type="text" id="type" name="type" placeholder="Soup" />
+              <input
+                type="text"
+                id="type"
+                name="type"
+                placeholder="Soup"
+                required
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("This field is required");
+                }}
+                onInput={(e) => e.target.setCustomValidity("")}
+              />
             </div>
+
             <div className="createGroup">
               <label htmlFor="imageUrl">Image URL:</label>
               <input
@@ -68,6 +84,11 @@ const Create = () => {
                 id="imageUrl"
                 name="imageUrl"
                 placeholder="Image URL"
+                required
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("This field is required");
+                }}
+                onInput={(e) => e.target.setCustomValidity("")}
               />
             </div>
 
@@ -78,6 +99,11 @@ const Create = () => {
                 id="description"
                 name="description"
                 placeholder="Some text"
+                required
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("This field is required");
+                }}
+                onInput={(e) => e.target.setCustomValidity("")}
               />
             </div>
             <div className="createGroup">
