@@ -14,7 +14,17 @@ You will see the `Edit`and the `Delete` buttons only if you are the creator of t
 
 If you are not the creator of the recipe, you will see a `Like` button that you can click if you enjoy the recipe.
 
+Also, you will see a `Dislike` button that you can click if you find the recipe not good enough.
+
 The site takes you to the `Login` page if you try to open a URL that is accessible only for logged in users.
+
+## Validation
+
+Validation is implemented.
+
+You shoul register with a valid email format. For example, `something@some_domain.some_toplevel_domain`.
+
+The password should be at least `five` characters long.
 
 ## Available Scripts
 
@@ -26,4 +36,4 @@ In the project directory, you can run:
 
 The server that is used in this project is a Softuni Practice Server created by Viktor Kostadinov.
 
-The server can be found here: https://github.com/softuni-practice-server/softuni-practice-server .
+The server can be found here: https://github.com/softuni-practice-server/softuni-practice-server.

@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3030";
-// const emailRegex = new RegExp("^[\w'+-]+(\.[\w'+-]+)*@\w+([-.]\w+)*\.\w{1,24}$");
 const emailRegex = new RegExp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$");
+const passRegex = new RegExp("^[A-Z0-9a-z._%+-]{5,}$");
 
 export const login = async (email, password) => {
   let res = await fetch(`${baseUrl}/users/login`, {
@@ -19,6 +19,9 @@ export const login = async (email, password) => {
     }
     if (!emailRegex.test(jsonResult.email)) {
       throw "Invalid email address format";
+    }
+    if (!passRegex.test(jsonResult.password)) {
+      throw "The password must be at least five characters long";
     }
 
     return jsonResult;
@@ -41,6 +44,10 @@ export const register = async (email, password) => {
    if (res.ok) {
     if (!emailRegex.test(jsonResult.email)) {
       throw "Invalid email address format";
+    }
+
+    if (!passRegex.test(jsonResult.password)) {
+      throw "The password must be at least five characters long";
     }
     return jsonResult;
   } else {
