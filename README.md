@@ -26,6 +26,8 @@ You shoul register with a valid email format. For example, `something@some_domai
 
 The password should be at least `five` characters long.
 
+When creating a new recipe, you need to fill all input fields.
+
 ## Available Scripts
 
 In the project directory, you can run:
