@@ -17,7 +17,7 @@ export const create = async (recipeData, token) => {
       "content-type": "application/json",
       "X-Authorization": token,
     },
-    body: JSON.stringify({ ...recipeData, likes: [] }),
+    body: JSON.stringify({ ...recipeData }),
   });
 
   let result = await response.json();
@@ -45,6 +45,17 @@ export const remove = (recipeId, token) => {
 };
 
 export const like = (recipeId, recipe, token) => {
+  return fetch(`${baseUrl}/recipes/${recipeId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": token,
+    },
+    body: JSON.stringify(recipe),
+  }).then((res) => res.json());
+};
+
+export const dislike = (recipeId, recipe, token) => {
   return fetch(`${baseUrl}/recipes/${recipeId}`, {
     method: "PUT",
     headers: {
