@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 import * as recipeService from "../../services/recipeService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useNotificationContext } from "../../contexts/NotificationContext";
+import { useState } from 'react';
+
 
 const Create = () => {
+  const [err, setError] = useState(null);
+
   const { user } = useAuthContext();
   const navigate = useNavigate();
   const { addNotification } = useNotificationContext();
@@ -31,7 +35,10 @@ const Create = () => {
       .then((result) => {
         addNotification("You created a new recipe.");
         navigate("/catalog");
-      });
+      })
+      .catch(err => {
+        setError(err);
+    });
   };
 
   return (

@@ -15,6 +15,8 @@ const Details = () => {
   const { user } = useAuthContext();
   const { addNotification } = useNotificationContext();
   const { recipeId } = useParams();
+  const [err, setError] = useState(null);
+
   const [recipe, setRecipe] = useRecipeState(recipeId);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
@@ -33,14 +35,17 @@ const Details = () => {
         addNotification("You deleted a recipe.");
         navigate("/catalog");
       })
+      .catch((err) => {
+        setError(err);
+      })
       .finally(() => {
         setShowDeleteDialog(false);
       });
+     
   };
 
   const deleteClickHandler = (e) => {
     e.preventDefault();
-    console.log(process.env.NODE_ENV);
     setShowDeleteDialog(true);
   };
 

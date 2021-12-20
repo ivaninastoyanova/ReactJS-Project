@@ -4,7 +4,6 @@ import "./RecipesList.css";
 
 const RecipesList = ({ recipes }) => {
   return (
-    // div className="recipes"
     <>
       { recipes.length > 0 
         ? (

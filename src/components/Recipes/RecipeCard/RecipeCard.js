@@ -14,7 +14,6 @@ const RecipeCard = ({recipe}) => {
                 </h2>
                 <p className="card-type">Type: {recipe.type}</p>
                 <article className="card-buttons">
-                    {/* link to /details */}
                     <Link to={`/details/${recipe._id}`}> 
                     <button className="card-button">Details</button>
                     </Link>
@@ -26,4 +25,3 @@ const RecipeCard = ({recipe}) => {
     );
 }
 export default RecipeCard;
-// types can be salad, starter, soup, main course , dessert 
