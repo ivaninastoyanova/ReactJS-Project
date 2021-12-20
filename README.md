@@ -21,3 +21,9 @@ The site takes you to the `Login` page if you try to open a URL that is accessib
 In the project directory, you can run:
 
 ### `npm start`
+
+## Server
+
+The server that is used in this project is a Softuni Practice Server created by Viktor Kostadinov.
+
+The server can be found here: https://github.com/softuni-practice-server/softuni-practice-server .
