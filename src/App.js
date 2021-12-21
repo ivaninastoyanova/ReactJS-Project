@@ -17,6 +17,7 @@ import Create from "./components/Create";
 import Details from "./components/Details";
 import Catalog from "./components/Catalog";
 import Edit from "./components/Edit";
+import LatestRecipes from "./components/LatestRecipes";
 
 import Notification from "./components/Common/Notification";
 import ErrorBoundary from "./components/Common/ErrorBoundary";
@@ -50,6 +51,8 @@ function App() {
                 <Route path="/catalog" element={<Catalog />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/details/:recipeId" element={<Details />} />
+                <Route path="/latest-recipes" element={<LatestRecipes />} />
+
 
                 <Route element={<ProtectedRoute />}>
                   <Route path="/my-recipes" element={<MyRecipes />} />

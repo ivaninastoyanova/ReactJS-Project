@@ -1,8 +1,19 @@
 const baseUrl = "http://localhost:3030";
-const emailRegex = new RegExp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$");
+const emailRegex = new RegExp(
+  "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+);
 const passRegex = new RegExp("^[A-Z0-9a-z._%+-]{5,}$");
 
 export const login = async (email, password) => {
+  if (!email) {
+    throw "This field must be filled.";
+  }
+  if (!emailRegex.test(email)) {
+    throw "Invalid email address format";
+  }
+  if (!passRegex.test(password)) {
+    throw "The password must be at least five characters long";
+  }
   let res = await fetch(`${baseUrl}/users/login`, {
     method: "POST",
     headers: {
@@ -12,25 +23,21 @@ export const login = async (email, password) => {
   });
 
   let jsonResult = await res.json();
-
-  if (res.ok) {
-    if (!jsonResult.email) {
-      throw jsonResult.message;
-    }
-    if (!emailRegex.test(jsonResult.email)) {
-      throw "Invalid email address format";
-    }
-    if (!passRegex.test(jsonResult.password)) {
-      throw "The password must be at least five characters long";
-    }
-
-    return jsonResult;
-  } else {
+  if (!res.ok) {
     throw jsonResult.message;
-  }
+  };
+  return jsonResult;
 };
 
 export const register = async (email, password) => {
+  if (!emailRegex.test(email)) {
+    throw "Invalid email address format";
+  }
+
+  if (!passRegex.test(password)) {
+    throw "The password must be at least five characters long";
+  }
+
   let res = await fetch(`${baseUrl}/users/register`, {
     method: "POST",
     headers: {
@@ -38,23 +45,14 @@ export const register = async (email, password) => {
     },
     body: JSON.stringify({ email, password }),
   });
-
   let jsonResult = await res.json();
 
-   if (res.ok) {
-    if (!emailRegex.test(jsonResult.email)) {
-      throw "Invalid email address format";
-    }
-
-    if (!passRegex.test(jsonResult.password)) {
-      throw "The password must be at least five characters long";
-    }
-    return jsonResult;
-  } else {
+  if (!res.ok) {
     throw jsonResult.message;
-  }
-};
+  };
+  return jsonResult;
 
+};
 
 export const logout = (token) => {
   return fetch(`${baseUrl}/users/logout`, {

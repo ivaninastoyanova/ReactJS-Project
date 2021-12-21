@@ -10,6 +10,10 @@ export const getMyRecipes = (ownerId) => {
   return request.get(`${baseUrl}/recipes?where=${query}`);
 };
 
+export const getLatestThreeRecipes = () => {
+  return request.get(`${baseUrl}/recipes?sortBy=_createdOn%20descoffset=0&pageSize=3`);
+};
+
 export const create = async (recipeData, token) => {
   let response = await fetch(`${baseUrl}/recipes`, {
     method: "POST",

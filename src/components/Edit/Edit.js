@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as recipeService from "../../services/recipeService";
 import useRecipeState from "../../hooks/useRecipeState";
 import { useNotificationContext } from "../../contexts/NotificationContext";
-import { useState } from 'react';
-
+import { useState } from "react";
 
 import "./Edit.css";
 
@@ -53,6 +52,11 @@ const Edit = () => {
               id="name"
               name="name"
               defaultValue={recipe.name}
+              required
+              onInvalid={(e) => {
+                e.target.setCustomValidity("This field is required");
+              }}
+              onInput={(e) => e.target.setCustomValidity("")}
             />
           </div>
 
@@ -63,6 +67,11 @@ const Edit = () => {
               id="type"
               name="type"
               defaultValue={recipe.type}
+              required
+              onInvalid={(e) => {
+                e.target.setCustomValidity("This field is required");
+              }}
+              onInput={(e) => e.target.setCustomValidity("")}
             />
           </div>
           <div className="editGroup">
@@ -72,6 +81,11 @@ const Edit = () => {
               id="imageUrl"
               name="imageUrl"
               defaultValue={recipe.imageUrl}
+              required
+              onInvalid={(e) => {
+                e.target.setCustomValidity("This field is required");
+              }}
+              onInput={(e) => e.target.setCustomValidity("")}
             />
           </div>
 
@@ -82,6 +96,11 @@ const Edit = () => {
               id="description"
               name="description"
               defaultValue={recipe.description}
+              required
+              onInvalid={(e) => {
+                e.target.setCustomValidity("This field is required");
+              }}
+              onInput={(e) => e.target.setCustomValidity("")}
             />
           </div>
           <div className="editGroup">
