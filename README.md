@@ -6,9 +6,9 @@ A place where you can upload recipes and share them with the world.
 
 The project has `Register` and `Login` functionalities.
 
-Unregistered visitors can access the following pages: `Home`, `All Recipes`, `About us` and `Details` of each recipe.
+Unregistered visitors can access the following pages: `Home`, `All Recipes`, `Latest Recipes`, `About us` and `Details` of each recipe.
 
-Register visitors/Users can access the pages: `Home`, `All Recipes`, `About us`, `Details` of each recipe, `Add Recipe`, `My Recipes`, `Edit`, and `Delete`. 
+Register visitors/Users can access the pages: `Home`, `All Recipes`, `Latest Recipes`, `About us`, `Details` of each recipe, `Add Recipe`, `My Recipes`, `Edit`, and `Delete`. 
 
 You will see the `Edit`and the `Delete` buttons only if you are the creator of the given recipe.
 
@@ -27,6 +27,8 @@ You shoul register with a valid email format. For example, `something@someDomain
 The password should be at least `five` characters long.
 
 When creating a new recipe, you need to fill all input fields.
+
+When editing a given recipe, you need to fill all input fields as well.
 
 ## Available Scripts
 
