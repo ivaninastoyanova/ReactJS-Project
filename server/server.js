@@ -1422,7 +1422,7 @@
             
             "1272be6d-66ef-4308-b3a7-8fc2aff63b7f" :{
                 "_ownerId": "91836e7d-3f3e-41eb-a76f-ae4ad1fb52a4",
-                "name": "Raspberry Cheesecake",
+                "name": "Cheesecake",
                 "type": "Dessert",
                 "imageUrl": "https://driscolls.imgix.net/-/media/assets/recipes/raspberry-cheesecake-with-grand-marnier.ashx?w=1200&h=900&fit=crop&crop=entropy&q=50&auto=format%2Ccompress&cs=srgb&ixlib=imgixjs-3.4.2",
                 "description": "Step 1.\r\nIn a large bowl, cream together cream cheese and sugar. Set aside. In a separate bowl, whip cream until stiff peaks form. Fold whipped cream into cream cheese mixture.\r\n\r\nStep 2.\r\nLine the bottom and sides of a 9 inch springform pan with cookies. Pour half of the cheese mixture over the cookies. Top with half the raspberry filling and spread evenly. Place another layer of cookies over raspberry and repeat cheese and raspberry layers. Chill in refrigerator 4 hours or overnight before unmolding and serving.",
