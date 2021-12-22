@@ -34,8 +34,7 @@ export const update = (recipeId, recipeData) =>
 
 export const getOne = (recipeId) => {
   return fetch(`${baseUrl}/recipes/${recipeId}`)
-  .then((res) => res.json()
-  );
+  .then((res) => res.json());
 };
 
 export const remove = (recipeId, token) => {
@@ -47,24 +46,3 @@ export const remove = (recipeId, token) => {
   }).then((res) => res.json());
 };
 
-export const like = (recipeId, recipe, token) => {
-  return fetch(`${baseUrl}/recipes/${recipeId}`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-      "X-Authorization": token,
-    },
-    body: JSON.stringify(recipe),
-  }).then((res) => res.json());
-};
-
-export const dislike = (recipeId, recipe, token) => {
-  return fetch(`${baseUrl}/recipes/${recipeId}`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-      "X-Authorization": token,
-    },
-    body: JSON.stringify(recipe),
-  }).then((res) => res.json());
-};

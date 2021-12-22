@@ -2,7 +2,6 @@ import { createContext, useContext, useState, useCallback } from "react";
 
 export const NotificationContext = createContext();
 
-
 const initialNotificationState = {
   show: false,
   message: "",
