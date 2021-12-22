@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router";
-import useLocalStorage from "./hooks/useLocalStorage";
-import { useEffect } from "react";
 
 import { AuthProvider } from "./contexts/AuthContext";
 import { NotificationProvider } from "./contexts/NotificationContext";
@@ -27,12 +25,7 @@ import "./App.css";
 
 
 function App() {
-  const [user, setUser] = useLocalStorage("user", null);
-
-  useEffect(() => {
-    console.log(user);
-  }, []);
-
+  
   return (
     <ErrorBoundary>
       <AuthProvider>
